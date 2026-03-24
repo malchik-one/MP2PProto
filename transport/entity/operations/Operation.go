@@ -1,5 +1,6 @@
 package operations
 
 type Operation interface {
-	Execute() int
+	MarshalBinary() ([]byte, error)
+	UnmarshalBinary(data []byte) (n int, err error)
 }
