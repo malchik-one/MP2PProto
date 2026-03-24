@@ -1,6 +1,6 @@
 package Int64Type
 
-import "MP2PProto/transport/entity/operations"
+import "github.com/malchik-one/MP2PProto/transport/entity/operations"
 
 var _ operations.Operation = (*Int64Send)(nil)
 

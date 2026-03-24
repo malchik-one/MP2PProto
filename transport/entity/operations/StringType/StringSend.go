@@ -1,6 +1,6 @@
 package StringType
 
-import "MP2PProto/transport/entity/operations"
+import "github.com/malchik-one/MP2PProto/transport/entity/operations"
 
 var _ operations.Operation = (*StringSend)(nil)
 
