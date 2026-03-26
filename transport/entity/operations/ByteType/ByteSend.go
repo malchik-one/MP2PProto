@@ -1,18 +1,30 @@
 package ByteType
 
-import "github.com/malchik-one/MP2PProto/transport/entity/operations"
+import (
+	"errors"
+
+	"github.com/malchik-one/MP2PProto/transport/entity/operations"
+)
 
 var _ operations.Operation = (*ByteSend)(nil)
 
 type ByteSend struct {
-	Tag  byte
-	Data []byte
+	TagSend byte
 }
 
 func (b *ByteSend) MarshalBinary() ([]byte, error) {
-	return []byte{}, nil
+
+	if b == nil {
+		return []byte{}, errors.New("Cтруктура b не может быть равна nil")
+	}
+
+	return []byte{b.TagSend}, nil
 }
 
 func (b *ByteSend) UnmarshalBinary(data []byte) (n int, err error) {
 	return 0, nil
+}
+
+func (b *ByteSend) GetTag() (tagByt byte) {
+	return b.TagSend
 }
